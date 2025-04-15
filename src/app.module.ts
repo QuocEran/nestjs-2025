@@ -42,8 +42,11 @@ const infrastructureDatabaseModule = (databaseConfig() as DatabaseConfig)
     });
 // </database-block>
 
+import { FeatureFlagsModule } from './feature-flags/feature-flags.module';
+
 @Module({
   imports: [
+    FeatureFlagsModule,
     ConfigModule.forRoot({
       isGlobal: true,
       load: [
