@@ -79,4 +79,12 @@ export class FeatureFlagRelationalRepository implements FeatureFlagRepository {
   async remove(id: FeatureFlag['id']): Promise<void> {
     await this.featureFlagRepository.delete(id);
   }
+
+  async getByName(name: FeatureFlag['name']): Promise<FeatureFlag | null> {
+    const entity = await this.featureFlagRepository.findOne({
+      where: { name },
+    });
+
+    return entity ? FeatureFlagMapper.toDomain(entity) : null;
+  }
 }

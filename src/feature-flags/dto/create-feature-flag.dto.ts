@@ -1,3 +1,19 @@
+import { ApiProperty } from '@nestjs/swagger';
+import { IsBoolean, IsNotEmpty, IsOptional, IsString } from 'class-validator';
+
 export class CreateFeatureFlagDto {
-  // Don't forget to use the class-validator decorators in the DTO properties.
+  @ApiProperty()
+  @IsString()
+  @IsNotEmpty()
+  name: string;
+
+  @ApiProperty()
+  @IsBoolean()
+  @IsNotEmpty()
+  enabled: boolean;
+
+  @ApiProperty()
+  @IsString()
+  @IsOptional()
+  description: string;
 }

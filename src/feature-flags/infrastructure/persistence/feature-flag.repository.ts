@@ -24,4 +24,6 @@ export abstract class FeatureFlagRepository {
   ): Promise<FeatureFlag | null>;
 
   abstract remove(id: FeatureFlag['id']): Promise<void>;
+
+  abstract getByName(name: FeatureFlag['name']): Promise<FeatureFlag | null>;
 }
